@@ -287,4 +287,4 @@ __pycache__/
 *.xsd.cs
 
 # v16
-*.suo
+.suo
