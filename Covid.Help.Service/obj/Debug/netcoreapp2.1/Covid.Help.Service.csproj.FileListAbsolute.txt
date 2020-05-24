@@ -1,0 +1,6 @@
+C:\covidhelp\Covid.Help.Service\obj\Debug\netcoreapp2.1\Covid.Help.Service.csprojAssemblyReference.cache
+C:\covidhelp\Covid.Help.Service\obj\Debug\netcoreapp2.1\Covid.Help.Service.csproj.CoreCompileInputs.cache
+C:\covidhelp\Covid.Help.Service\obj\Debug\netcoreapp2.1\Covid.Help.Service.RazorAssemblyInfo.cache
+C:\covidhelp\Covid.Help.Service\obj\Debug\netcoreapp2.1\Covid.Help.Service.RazorAssemblyInfo.cs
+C:\covidhelp\Covid.Help.Service\obj\Debug\netcoreapp2.1\Covid.Help.Service.AssemblyInfoInputs.cache
+C:\covidhelp\Covid.Help.Service\obj\Debug\netcoreapp2.1\Covid.Help.Service.AssemblyInfo.cs
