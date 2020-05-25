@@ -19,9 +19,9 @@ namespace Covid.Help.Service.Controllers
             {
                 Say = new TwilioSayApiResponse
                 {
-                    Voice = "Polly",
+                    Voice = "alice",
                     Language = "pt-BR",
-                    Value = twilioApiRequest.CallStatus + " Jair Messias Bolsonaro é um capitão reformado, político e atual presidente do Brasil. Foi deputado federal por sete mandatos entre 1991 e 2018, sendo eleito através de diferentes partidos ao longo de sua carreira. Elegeu-se à presidência pelo Partido Social Liberal."
+                    Value = twilioApiRequest.CallStatus + " Bom dia. Bom dia. Bom dia. Bom dia.Jair Messias Bolsonaro é um capitão reformado, político e atual presidente do Brasil. Foi deputado federal por sete mandatos entre 1991 e 2018, sendo eleito através de diferentes partidos ao longo de sua carreira. Elegeu-se à presidência pelo Partido Social Liberal."
                 }
             };
             var twilioXml = new TwilioApiMap(twilioResponse).ToXml();
