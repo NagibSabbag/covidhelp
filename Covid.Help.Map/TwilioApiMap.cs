@@ -34,7 +34,8 @@ namespace Covid.Help.Map
                     xmlns.Add(string.Empty, string.Empty);
 
                     xsSubmit.Serialize(writer, _twilioApiResponse, xmlns);
-                    return sw.ToString(); // Your XML
+                    return sw.ToString();
+                    //return $"<?xml version=\"1.0\"?>{sw}";
                 }
             }
         }

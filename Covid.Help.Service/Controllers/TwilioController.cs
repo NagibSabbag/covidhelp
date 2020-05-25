@@ -1,8 +1,8 @@
 ﻿using Covid.Help.Map;
-using Covid.Help.Models.Request;
 using Covid.Help.Models.Response;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Text;
 
 namespace Covid.Help.Service.Controllers
 {
@@ -12,9 +12,11 @@ namespace Covid.Help.Service.Controllers
     {
         [HttpPost]
         [Route("call")]
+        [Produces("text/xml")]
         [ProducesResponseType(typeof(TwilioApiResponse), StatusCodes.Status200OK)]
-        public string SetCall()
+        public ContentResult SetCall()
         {
+
             //var parameters = string.Empty;
             //using (StreamReader reader = new StreamReader(Request.Body, Encoding.UTF8))
             //    parameters = await reader.ReadToEndAsync();
@@ -29,7 +31,7 @@ namespace Covid.Help.Service.Controllers
             };
             var twilioXml = new TwilioApiMap(twilioResponse).ToXml();
 
-            return twilioXml;
+            return this.Content(twilioXml, "text/xml", Encoding.UTF8);
         }
     }
 }
