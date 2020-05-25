@@ -25,7 +25,7 @@ namespace Covid.Help.Service.Controllers
                 Say = new TwilioSayApiResponse
                 {
                     Voice = "Polly.Camila-Neural",
-                    Value = "Olá. Eu sou a Viviam, sua assistente virtual. Fui desenvolvida para ajudar na triagem dos casos do Corona vírus, assim como passar algumas informações que podem ser de grande ajuda. Espero ajudar de alguma forma."
+                    Value = "Olá. Eu sou a Vivi, sua assistente virtual. Fui desenvolvida para ajudar na triagem dos casos do Corona vírus, assim como passar algumas informações que podem ser de grande ajuda. Espero ajudar de alguma forma."
                 }
             };
             var twilioXml = new TwilioApiMap(twilioResponse).ToXml();
