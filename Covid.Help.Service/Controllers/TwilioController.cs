@@ -16,7 +16,6 @@ namespace Covid.Help.Service.Controllers
         [ProducesResponseType(typeof(TwilioApiResponse), StatusCodes.Status200OK)]
         public ContentResult SetCall()
         {
-
             //var parameters = string.Empty;
             //using (StreamReader reader = new StreamReader(Request.Body, Encoding.UTF8))
             //    parameters = await reader.ReadToEndAsync();
@@ -26,7 +25,7 @@ namespace Covid.Help.Service.Controllers
                 Say = new TwilioSayApiResponse
                 {
                     Voice = "Polly.Camila-Neural",
-                    Value = "Bom dia. Bom dia. Bom dia. Bom dia.Jair Messias Bolsonaro é um capitão reformado, político e atual presidente do Brasil. Foi deputado federal por sete mandatos entre 1991 e 2018, sendo eleito através de diferentes partidos ao longo de sua carreira. Elegeu-se à presidência pelo Partido Social Liberal."
+                    Value = "Olá. Eu sou a Viviam, sua assistente virtual. Fui desenvolvida para ajudar na triagem dos casos do Corona vírus, assim como passar algumas informações que podem ser de grande ajuda. Espero ajudar de alguma forma."
                 }
             };
             var twilioXml = new TwilioApiMap(twilioResponse).ToXml();
