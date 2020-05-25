@@ -17,4 +17,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.3.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Covid.Help.Map\Covid.Help.Map.csproj" />
+    <ProjectReference Include="..\Covid.Help.Models\Covid.Help.Models.csproj" />
+  </ItemGroup>
+
 </Project>
