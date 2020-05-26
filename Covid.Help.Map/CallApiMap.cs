@@ -6,13 +6,13 @@ using System.Xml.Serialization;
 
 namespace Covid.Help.Map
 {
-    public class TwilioApiMap
+    public class CallApiMap
     {
-        private readonly TwilioApiResponse _twilioApiResponse;
+        private readonly CallApiResponse _callApiResponse;
 
-        public TwilioApiMap(TwilioApiResponse twilioApiResponse)
+        public CallApiMap(CallApiResponse callApiResponse)
         {
-            _twilioApiResponse = twilioApiResponse;
+            _callApiResponse = callApiResponse;
         }
 
         public string ToXml()
@@ -24,7 +24,7 @@ namespace Covid.Help.Map
                 Encoding = Encoding.UTF8
             };
 
-            XmlSerializer xsSubmit = new XmlSerializer(typeof(TwilioApiResponse));
+            XmlSerializer xsSubmit = new XmlSerializer(typeof(CallApiResponse));
             using (StringWriter sw = new StringWriter())
             {
                 using (XmlWriter writer = XmlWriter.Create(sw, settings))
@@ -33,7 +33,7 @@ namespace Covid.Help.Map
                     var xmlns = new XmlSerializerNamespaces();
                     xmlns.Add(string.Empty, string.Empty);
 
-                    xsSubmit.Serialize(writer, _twilioApiResponse, xmlns);
+                    xsSubmit.Serialize(writer, _callApiResponse, xmlns);
                     return sw.ToString();
                 }
             }

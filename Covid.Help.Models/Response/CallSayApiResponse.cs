@@ -3,7 +3,7 @@
 namespace Covid.Help.Models.Response
 {
     [XmlRoot("Say")]
-    public class TwilioSayApiResponse
+    public class CallSayApiResponse
     {
         [XmlAttribute("voice")]
         public string Voice { get; set; }

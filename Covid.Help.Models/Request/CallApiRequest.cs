@@ -1,6 +1,6 @@
 ﻿namespace Covid.Help.Models.Request
 {
-    public class TwilioApiRequest
+    public class CallApiRequest
     {
         public string Called { get; set; }
         public string ToState { get; set; }
