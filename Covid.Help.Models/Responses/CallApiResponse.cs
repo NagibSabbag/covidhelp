@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace Covid.Help.Models.Response
+namespace Covid.Help.Models.Responses
 {
     [XmlRoot("Response")]
     public class CallApiResponse

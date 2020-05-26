@@ -1,4 +1,4 @@
-﻿namespace Covid.Help.Models.Request
+﻿namespace Covid.Help.Models.Requests
 {
     public class CallApiRequest
     {

@@ -1,6 +1,7 @@
 ﻿using Covid.Help.Map;
-using Covid.Help.Models.Request;
-using Covid.Help.Models.Response;
+using Covid.Help.Models.Interfaces.Service.Configurations;
+using Covid.Help.Models.Requests;
+using Covid.Help.Models.Responses;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Text;
@@ -10,18 +11,25 @@ namespace Covid.Help.Service.Controllers
     [Route("api/[controller]")]
     public class CallController : Controller
     {
+        private readonly IAppSettings _appSettings;
+
+        public CallController(IAppSettings appSettings)
+        {
+            _appSettings = appSettings;
+        }
+
         [HttpPost]
         [Route("init")]
         [Produces("text/xml")]
         [ProducesResponseType(typeof(CallApiResponse), StatusCodes.Status200OK)]
-        public IActionResult InitCall(CallApiRequest voiceRequest)
+        public IActionResult InitCall(CallApiRequest callApiRequest)
         {
             var callApiResponse = new CallApiResponse
             {
                 Say = new CallSayApiResponse
                 {
-                    Voice = "Polly.Camila-Neural",
-                    Value = voiceRequest.From + " Olá. Olá. Olá. Eu sou a Vivi, sua assistente virtual. Fui desenvolvida para ajudar na triagem dos casos do Corona vírus, assim como passar algumas informações que podem ser de grande ajuda. Espero ajudar de alguma forma."
+                    Voice = _appSettings.CallProperties_Voice,
+                    Value = _appSettings.CallProperties_Init_Morning + callApiRequest.FromCity
                 }
             };
             var callXml = new CallApiMap(callApiResponse).ToXml();

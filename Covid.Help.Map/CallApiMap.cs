@@ -1,4 +1,4 @@
-﻿using Covid.Help.Models.Response;
+﻿using Covid.Help.Models.Responses;
 using System.IO;
 using System.Text;
 using System.Xml;
