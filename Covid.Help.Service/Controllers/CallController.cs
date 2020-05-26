@@ -12,10 +12,10 @@ namespace Covid.Help.Service.Controllers
     public class CallController : Controller
     {
         [HttpPost]
-        [Route("call")]
+        [Route("init")]
         [Produces("text/xml")]
         [ProducesResponseType(typeof(CallApiResponse), StatusCodes.Status200OK)]
-        public ContentResult SetCall(CallApiRequest callApiRequest)
+        public ContentResult InitCall(CallApiRequest callApiRequest)
         {
             var callApiResponse = new CallApiResponse
             {
