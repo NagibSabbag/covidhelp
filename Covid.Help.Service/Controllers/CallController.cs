@@ -1,22 +1,20 @@
 ﻿using Covid.Help.Map;
+using Covid.Help.Models.Request;
 using Covid.Help.Models.Response;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Text;
-using Twilio.AspNet.Common;
-using Twilio.AspNet.Core;
 
 namespace Covid.Help.Service.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
-    public class CallController : TwilioController
+    public class CallController : Controller
     {
         [HttpPost]
         [Route("init")]
         [Produces("text/xml")]
         [ProducesResponseType(typeof(CallApiResponse), StatusCodes.Status200OK)]
-        public ContentResult InitCall(VoiceRequest voiceRequest)
+        public IActionResult InitCall(CallApiRequest voiceRequest)
         {
             var callApiResponse = new CallApiResponse
             {
