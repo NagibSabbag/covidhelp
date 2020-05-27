@@ -32,7 +32,7 @@ namespace Covid.Help.Service.Controllers
                     new CallUnitApiResponse{ Say = new CallSayApiResponse
                     {
                         Voice = _appSettings.CallEvents.Voice,
-                        Value = _appSettings.CallEvents.Init.GoodMorning
+                        Value = string.IsNullOrEmpty(callApiRequest.SpeechResult) ? _appSettings.CallEvents.Init.GoodMorning : callApiRequest.SpeechResult
                     }},
                     new CallUnitApiResponse{ Say = new CallSayApiResponse
                     {
