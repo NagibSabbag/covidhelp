@@ -1,10 +1,9 @@
-﻿using System.Xml.Serialization;
+﻿using System.Collections.Generic;
 
 namespace Covid.Help.Models.Responses
 {
-    [XmlRoot("Response")]
-    public class CallApiResponse
+    public sealed class CallApiResponse
     {
-        public CallSayApiResponse Say { get; set; }
+        public List<CallUnitApiResponse> Response { get; set; }
     }
 }

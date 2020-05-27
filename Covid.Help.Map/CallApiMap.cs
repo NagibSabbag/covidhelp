@@ -1,4 +1,5 @@
 ﻿using Covid.Help.Models.Responses;
+using System;
 using System.IO;
 using System.Text;
 using System.Xml;
@@ -8,14 +9,19 @@ namespace Covid.Help.Map
 {
     public class CallApiMap
     {
-        private readonly CallApiResponse _callApiResponse;
+        public string ToXml { get; private set; }
 
         public CallApiMap(CallApiResponse callApiResponse)
         {
-            _callApiResponse = callApiResponse;
+            ToXml = "<Response>";
+            callApiResponse.Response.ForEach(x => ToXml += ConvertToXml(x));
+            ToXml += "</Response>";
         }
-
-        public string ToXml()
+        private string ConvertToXml(CallUnitApiResponse callUnitApiResponse)
+        {
+            return ConvertToXml(callUnitApiResponse.Say);
+        }
+        private string ConvertToXml(CallSayApiResponse callSayApiResponse)
         {
             // removes version
             XmlWriterSettings settings = new XmlWriterSettings
@@ -24,7 +30,7 @@ namespace Covid.Help.Map
                 Encoding = Encoding.UTF8
             };
 
-            XmlSerializer xsSubmit = new XmlSerializer(typeof(CallApiResponse));
+            XmlSerializer xsSubmit = new XmlSerializer(typeof(CallSayApiResponse));
             using (StringWriter sw = new StringWriter())
             {
                 using (XmlWriter writer = XmlWriter.Create(sw, settings))
@@ -33,7 +39,7 @@ namespace Covid.Help.Map
                     var xmlns = new XmlSerializerNamespaces();
                     xmlns.Add(string.Empty, string.Empty);
 
-                    xsSubmit.Serialize(writer, _callApiResponse, xmlns);
+                    xsSubmit.Serialize(writer, callSayApiResponse, xmlns);
                     return sw.ToString();
                 }
             }

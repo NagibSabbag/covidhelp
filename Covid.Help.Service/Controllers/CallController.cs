@@ -4,6 +4,7 @@ using Covid.Help.Models.Requests;
 using Covid.Help.Models.Responses;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Text;
 
 namespace Covid.Help.Service.Controllers
@@ -26,13 +27,22 @@ namespace Covid.Help.Service.Controllers
         {
             var callApiResponse = new CallApiResponse
             {
-                Say = new CallSayApiResponse
+                Response = new List<CallUnitApiResponse>
                 {
-                    Voice = _appSettings.CallProperties_Voice,
-                    Value = _appSettings.CallProperties_Init_Morning + callApiRequest.FromCity
+                    new CallUnitApiResponse{ Say = new CallSayApiResponse
+                    {
+                        Voice = _appSettings.CallEvents.Voice,
+                        Value = _appSettings.CallEvents.Init.GoodMorning
+                    }},
+                    new CallUnitApiResponse{ Say = new CallSayApiResponse
+                    {
+                        Voice = _appSettings.CallEvents.Voice,
+                        Value = _appSettings.CallEvents.Introduction.Hello
+                    }}
                 }
             };
-            var callXml = new CallApiMap(callApiResponse).ToXml();
+
+            var callXml = new CallApiMap(callApiResponse).ToXml;
 
             return this.Content(callXml, "text/xml", Encoding.UTF8);
         }

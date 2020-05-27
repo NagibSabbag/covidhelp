@@ -1,8 +1,9 @@
-﻿namespace Covid.Help.Models.Interfaces.Service.Configurations
+﻿using Covid.Help.Models.Configurations;
+
+namespace Covid.Help.Models.Interfaces.Service.Configurations
 {
     public interface IAppSettings
     {
-        string CallProperties_Voice { get; }
-        string CallProperties_Init_Morning { get; }
+        CallEventsConfiguration CallEvents { get; }
     }
 }

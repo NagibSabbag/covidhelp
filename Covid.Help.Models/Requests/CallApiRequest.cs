@@ -1,6 +1,6 @@
 ﻿namespace Covid.Help.Models.Requests
 {
-    public class CallApiRequest
+    public sealed class CallApiRequest
     {
         public string SipUsername { get; set; }
         public string SipDomain { get; set; }
