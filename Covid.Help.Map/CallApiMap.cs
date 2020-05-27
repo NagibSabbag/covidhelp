@@ -13,9 +13,9 @@ namespace Covid.Help.Map
 
         public CallApiMap(CallApiResponse callApiResponse)
         {
-            ToXml = "<Response>";
+            ToXml = "<Response><Gather speechTimeout=\"auto\" language=\"pt-BR\" input=\"speech\">";
             callApiResponse.Response.ForEach(x => ToXml += ConvertToXml(x));
-            ToXml += "</Response>";
+            ToXml += "</Gather></Response>";
         }
         private string ConvertToXml(CallUnitApiResponse callUnitApiResponse)
         {
