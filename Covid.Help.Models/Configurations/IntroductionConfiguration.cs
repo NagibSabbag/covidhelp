@@ -6,6 +6,7 @@
         {
             Hello = hello;
         }
+
         public string Hello { get; }
     }
 }

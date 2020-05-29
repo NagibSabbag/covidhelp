@@ -6,6 +6,7 @@
         {
             CallEvents = callEventsConfiguration;
         }
+
         public CallEventsConfiguration CallEvents { get; }
     }
 }

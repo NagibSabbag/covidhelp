@@ -1,5 +1,4 @@
 ﻿using Covid.Help.Models.Responses;
-using System;
 using System.IO;
 using System.Text;
 using System.Xml;
@@ -11,16 +10,18 @@ namespace Covid.Help.Map
     {
         public string ToXml { get; private set; }
 
-        public CallApiMap(CallApiResponse callApiResponse)
+        public CallApiMap(CallApiResponse callApiResponse, string responseBegin, string responseEnd)
         {
-            ToXml = "<Response><Gather speechTimeout=\"auto\" language=\"pt-BR\" input=\"speech\">";
+            ToXml = responseBegin;
             callApiResponse.Response.ForEach(x => ToXml += ConvertToXml(x));
-            ToXml += "</Gather></Response>";
+            ToXml += responseEnd;
         }
+
         private string ConvertToXml(CallUnitApiResponse callUnitApiResponse)
         {
             return ConvertToXml(callUnitApiResponse.Say);
         }
+
         private string ConvertToXml(CallSayApiResponse callSayApiResponse)
         {
             // removes version

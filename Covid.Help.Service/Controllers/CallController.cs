@@ -42,7 +42,10 @@ namespace Covid.Help.Service.Controllers
                 }
             };
 
-            var callXml = new CallApiMap(callApiResponse).ToXml;
+            var callXml = new CallApiMap(
+                callApiResponse: callApiResponse,
+                responseBegin: _appSettings.CallEvents.ResponseBegin,
+                responseEnd: _appSettings.CallEvents.ResponseEnd).ToXml;
 
             return this.Content(callXml, "text/xml", Encoding.UTF8);
         }
