@@ -1,4 +1,5 @@
-﻿using Covid.Help.Models.Responses;
+﻿using Covid.Help.Models.Interfaces.Map;
+using Covid.Help.Models.Responses;
 using System.IO;
 using System.Text;
 using System.Xml;
@@ -6,20 +7,15 @@ using System.Xml.Serialization;
 
 namespace Covid.Help.Map
 {
-    public class CallApiMap
+    public class CallApiMap : ICallApiMap
     {
-        public string ToXml { get; private set; }
-
-        public CallApiMap(CallApiResponse callApiResponse, string responseBegin, string responseEnd)
+        public string ConvertToXml(CallApiResponse callApiResponse, string responseBegin, string responseEnd)
         {
-            ToXml = responseBegin;
-            callApiResponse.Response.ForEach(x => ToXml += ConvertToXml(x));
-            ToXml += responseEnd;
-        }
+            var result = responseBegin;
+            callApiResponse.Response.ForEach(x => result += ConvertToXml(x.Say));
+            result += responseEnd;
 
-        private string ConvertToXml(CallUnitApiResponse callUnitApiResponse)
-        {
-            return ConvertToXml(callUnitApiResponse.Say);
+            return result;
         }
 
         private string ConvertToXml(CallSayApiResponse callSayApiResponse)

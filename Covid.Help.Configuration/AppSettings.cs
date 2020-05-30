@@ -1,8 +1,8 @@
 ﻿using Covid.Help.Models.Configurations;
-using Covid.Help.Models.Interfaces.Service.Configurations;
+using Covid.Help.Models.Interfaces.Configuration;
 using Microsoft.Extensions.Configuration;
 
-namespace Covid.Help.Service.Configurations
+namespace Covid.Help.Configuration
 {
     public class AppSettings : IAppSettings
     {

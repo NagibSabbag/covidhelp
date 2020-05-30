@@ -1,5 +1,4 @@
-﻿using Covid.Help.Models.Interfaces.Service.Configurations;
-using Covid.Help.Service.Configurations;
+﻿using Covid.Help.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -28,8 +27,7 @@ namespace Covid.Help.Service
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Covid Breaker API", Version = "v1" });
             });
-
-            services.AddSingleton<IAppSettings, AppSettings>();
+            new DependencyInjection().Configure(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

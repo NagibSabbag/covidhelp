@@ -1,10 +1,8 @@
-﻿using Covid.Help.Map;
-using Covid.Help.Models.Interfaces.Service.Configurations;
+﻿using Covid.Help.Models.Interfaces.Algorithm;
 using Covid.Help.Models.Requests;
 using Covid.Help.Models.Responses;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 using System.Text;
 
 namespace Covid.Help.Service.Controllers
@@ -12,11 +10,11 @@ namespace Covid.Help.Service.Controllers
     [Route("api/[controller]")]
     public class CallController : Controller
     {
-        private readonly IAppSettings _appSettings;
+        private readonly ICall _call;
 
-        public CallController(IAppSettings appSettings)
+        public CallController(ICall call)
         {
-            _appSettings = appSettings;
+            _call = call;
         }
 
         [HttpPost]
@@ -25,29 +23,7 @@ namespace Covid.Help.Service.Controllers
         [ProducesResponseType(typeof(CallApiResponse), StatusCodes.Status200OK)]
         public IActionResult InitCall(CallApiRequest callApiRequest)
         {
-            var callApiResponse = new CallApiResponse
-            {
-                Response = new List<CallUnitApiResponse>
-                {
-                    new CallUnitApiResponse{ Say = new CallSayApiResponse
-                    {
-                        Voice = _appSettings.CallEvents.Voice,
-                        Value = string.IsNullOrEmpty(callApiRequest.SpeechResult) ? _appSettings.CallEvents.Init.GoodMorning : callApiRequest.SpeechResult
-                    }},
-                    new CallUnitApiResponse{ Say = new CallSayApiResponse
-                    {
-                        Voice = _appSettings.CallEvents.Voice,
-                        Value = _appSettings.CallEvents.Introduction.Hello
-                    }}
-                }
-            };
-
-            var callXml = new CallApiMap(
-                callApiResponse: callApiResponse,
-                responseBegin: _appSettings.CallEvents.ResponseBegin,
-                responseEnd: _appSettings.CallEvents.ResponseEnd).ToXml;
-
-            return this.Content(callXml, "text/xml", Encoding.UTF8);
+            return this.Content(_call.Init(callApiRequest), "text/xml", Encoding.UTF8);
         }
     }
 }

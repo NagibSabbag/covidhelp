@@ -5,9 +5,13 @@ VisualStudioVersion = 16.0.29920.165
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Covid.Help.Service", "Covid.Help.Service\Covid.Help.Service.csproj", "{B9B3421F-01B7-4708-8A49-D565893E6391}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Covid.Help.Models", "Covid.Help.Models\Covid.Help.Models.csproj", "{5F7FEF48-7CC0-473F-BF14-A84DC1869E6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Covid.Help.Models", "Covid.Help.Models\Covid.Help.Models.csproj", "{5F7FEF48-7CC0-473F-BF14-A84DC1869E6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Covid.Help.Map", "Covid.Help.Map\Covid.Help.Map.csproj", "{8BC66DF5-A6EC-4AAE-8E90-B0F98F63EC71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Covid.Help.Map", "Covid.Help.Map\Covid.Help.Map.csproj", "{8BC66DF5-A6EC-4AAE-8E90-B0F98F63EC71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Covid.Help.Algorithm", "Covid.Help.Algorithm\Covid.Help.Algorithm.csproj", "{30523433-34F5-4284-8EB3-DD5E40348603}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Covid.Help.Configuration", "Covid.Help.Configuration\Covid.Help.Configuration.csproj", "{C5CC77FE-6396-4130-B43C-B418B2A1F186}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{8BC66DF5-A6EC-4AAE-8E90-B0F98F63EC71}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BC66DF5-A6EC-4AAE-8E90-B0F98F63EC71}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BC66DF5-A6EC-4AAE-8E90-B0F98F63EC71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30523433-34F5-4284-8EB3-DD5E40348603}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30523433-34F5-4284-8EB3-DD5E40348603}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30523433-34F5-4284-8EB3-DD5E40348603}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30523433-34F5-4284-8EB3-DD5E40348603}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5CC77FE-6396-4130-B43C-B418B2A1F186}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5CC77FE-6396-4130-B43C-B418B2A1F186}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5CC77FE-6396-4130-B43C-B418B2A1F186}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5CC77FE-6396-4130-B43C-B418B2A1F186}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
