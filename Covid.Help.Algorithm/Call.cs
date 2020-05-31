@@ -3,6 +3,7 @@ using Covid.Help.Models.Interfaces.Configuration;
 using Covid.Help.Models.Interfaces.Map;
 using Covid.Help.Models.Requests;
 using Covid.Help.Models.Responses;
+using System;
 using System.Collections.Generic;
 
 namespace Covid.Help.Algorithm
@@ -11,31 +12,26 @@ namespace Covid.Help.Algorithm
     {
         private readonly ICallApiMap _callApiMap;
         private readonly IAppSettings _appSettings;
+        private readonly IAction _action;
 
-        public Call(ICallApiMap callApiMap, IAppSettings appSettings)
+        public Call(ICallApiMap callApiMap, IAppSettings appSettings, IAction action)
         {
             _callApiMap = callApiMap;
             _appSettings = appSettings;
+            _action = action;
         }
 
         public string Init(CallApiRequest callApiRequest)
         {
-            var callApiResponse = new CallApiResponse
-            {
-                Response = new List<CallUnitApiResponse>
-                {
-                    new CallUnitApiResponse{ Say = new CallSayApiResponse
-                    {
-                        Voice = _appSettings.CallEvents.Voice,
-                        Value = string.IsNullOrEmpty(callApiRequest.SpeechResult) ? _appSettings.CallEvents.Init.GoodMorning : callApiRequest.SpeechResult
-                    }},
-                    new CallUnitApiResponse{ Say = new CallSayApiResponse
-                    {
-                        Voice = _appSettings.CallEvents.Voice,
-                        Value = _appSettings.CallEvents.Introduction.Hello
-                    }}
-                }
-            };
+            var callApiResponse = new CallApiResponse();
+            var callUnitApiResponse = new List<CallUnitApiResponse>();
+
+            if (String.IsNullOrEmpty(callApiRequest.SpeechResult))
+                callUnitApiResponse.Add(new CallUnitApiResponse { Say = _action.SayHello(DateTime.Now) });
+            else
+                callUnitApiResponse.Add(new CallUnitApiResponse { Say = _action.SayScreening(callApiRequest.SpeechResult) });
+
+            callApiResponse.Response = callUnitApiResponse;
 
             return _callApiMap.ConvertToXml(
                 callApiResponse: callApiResponse,

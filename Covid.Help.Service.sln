@@ -9,9 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Covid.Help.Models", "Covid.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Covid.Help.Map", "Covid.Help.Map\Covid.Help.Map.csproj", "{8BC66DF5-A6EC-4AAE-8E90-B0F98F63EC71}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Covid.Help.Algorithm", "Covid.Help.Algorithm\Covid.Help.Algorithm.csproj", "{30523433-34F5-4284-8EB3-DD5E40348603}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Covid.Help.Algorithm", "Covid.Help.Algorithm\Covid.Help.Algorithm.csproj", "{30523433-34F5-4284-8EB3-DD5E40348603}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Covid.Help.Configuration", "Covid.Help.Configuration\Covid.Help.Configuration.csproj", "{C5CC77FE-6396-4130-B43C-B418B2A1F186}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Covid.Help.Configuration", "Covid.Help.Configuration\Covid.Help.Configuration.csproj", "{C5CC77FE-6396-4130-B43C-B418B2A1F186}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

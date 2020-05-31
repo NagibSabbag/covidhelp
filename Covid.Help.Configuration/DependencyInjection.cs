@@ -11,7 +11,9 @@ namespace Covid.Help.Configuration
     {
         public void Configure(IServiceCollection services)
         {
-            services.AddSingleton<ICall, Call>()
+            services
+                .AddSingleton<IAction, Action>()
+                .AddSingleton<ICall, Call>()
                 .AddSingleton<IFormatMessage, FormatMessage>()
                 .AddSingleton<IAppSettings, AppSettings>()
                 .AddSingleton<ICallApiMap, CallApiMap>();
