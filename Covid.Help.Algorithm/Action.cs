@@ -8,6 +8,7 @@ namespace Covid.Help.Algorithm
     public class Action : IAction
     {
         private readonly IAppSettings _appSettings;
+
         public Action(IAppSettings appSettings)
         {
             _appSettings = appSettings;
